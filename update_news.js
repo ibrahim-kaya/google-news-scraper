@@ -20,7 +20,7 @@ async function gotoWithFullRedirects(page, url, timeout = 60000) {
 
     try {
         while (true) {
-            await page.goto(currentUrl, {waitUntil: 'networkidle0', timeout});
+            await page.goto(currentUrl, {waitUntil: 'networkidle2', timeout});
 
             const newUrl = page.url();
 
@@ -92,7 +92,7 @@ async function main(rssUrl, outputFile) {
             title: link.title[0],
             link: finalUrl,
             google_link: link.link[0],
-            description: link.description[0],
+            // description: link.description[0],
             source_name: link.source[0]._,
             source_url: link.source[0].$.url,
         };
