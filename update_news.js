@@ -3,6 +3,7 @@ const xml2js = require('xml2js');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const cheerio = require('cheerio');
+const path = require('path');
 
 async function fetchRSSLinks(rssUrl) {
     const response = await axios.get(rssUrl);
@@ -129,6 +130,6 @@ async function main(rssUrl, outputFile) {
 
 
 const rssFeedUrl = 'https://news.google.com/rss/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZ0ZHpFU0FuUnlLQUFQAQ?hl=tr&gl=TR&ceid=TR:tr';  // Buraya feed URL'i yaz
-const outputJsonFile = 'results.json';
+const outputJsonFile = path.join(__dirname, '..', 'results.json');
 
 main(rssFeedUrl, outputJsonFile).catch(console.error);
