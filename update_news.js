@@ -94,6 +94,7 @@ async function main(rssUrl, outputFile) {
             link: finalUrl,
             google_link: link.link[0],
             // description: link.description[0],
+            publish_date: link.pubDate[0],
             source_name: link.source[0]._,
             source_url: link.source[0].$.url,
         };
